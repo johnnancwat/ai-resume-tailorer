@@ -3,32 +3,48 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [file, setFile] = useState<File | null>(null);
+  const [resumeText, setResumeText] = useState("");
   const [jobDescription, setJobDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
-    }
-  };
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleTailorSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!file || !jobDescription.trim()) {
-      alert("Please upload a resume file and paste a job description!");
+    if (!resumeText.trim() || !jobDescription.trim()) {
+      alert("Please paste your resume text and the target job description!");
       return;
     }
 
     setLoading(true);
     setResult(null);
+    setErrorMsg(null);
 
-    // TODO: Connect this to our backend API route next!
-    setTimeout(() => {
-      setResult("### ATS-Optimized Summary\n\n- Successfully optimized keywords for the target role.\n- Enhanced professional impact metrics.");
+    try {
+      const response = await fetch("/api/tailor", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          resume: resumeText,
+          jobDescription: jobDescription,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to communicate with AI server.");
+      }
+
+      setResult(data.text);
+    } catch (err: any) {
+      console.error(err);
+      setErrorMsg(err.message || "Something went wrong. Please check your setup.");
+    } finally {
       setLoading(false);
-    }, 2000);
+    }
   };
 
   return (
@@ -41,33 +57,24 @@ export default function Home() {
             AI-Powered Resume Tailorer
           </h1>
           <p className="text-zinc-600 text-lg">
-            Automate the tedious process of editing resumes to match target jobs and beat Applicant Tracking Systems (ATS).
+            Paste your resume and target role details below to instantly optimize for Applicant Tracking Systems (ATS).
           </p>
         </header>
 
         {/* Main Workspace Form */}
         <form onSubmit={handleTailorSubmit} className="space-y-6 bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm">
           
-          {/* File Upload Section */}
+          {/* Resume Text Box */}
           <div className="space-y-2">
             <label className="block text-sm font-semibold text-zinc-800">
-              Upload Existing Resume (PDF or DOCX)
+              Paste Your Current Resume Content
             </label>
-            <div className="flex items-center justify-center w-full">
-              <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-zinc-300 rounded-xl cursor-pointer bg-zinc-50 hover:bg-zinc-100/50 transition-colors">
-                <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                  <p className="mb-2 text-sm text-zinc-500">
-                    {file ? (
-                      <span className="font-semibold text-emerald-600">Selected: {file.name}</span>
-                    ) : (
-                      <span><span className="font-semibold">Click to upload</span> or drag and drop</span>
-                    )}
-                  </p>
-                  <p className="text-xs text-zinc-400">PDF, DOCX up to 10MB</p>
-                </div>
-                <input type="file" accept=".pdf,.docx" className="hidden" onChange={handleFileChange} />
-              </label>
-            </div>
+            <textarea
+              className="w-full h-40 px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:border-transparent resize-y text-sm"
+              placeholder="Select and copy all text from your resume document and paste it here..."
+              value={resumeText}
+              onChange={(e) => setResumeText(e.target.value)}
+            />
           </div>
 
           {/* Job Description Box */}
@@ -77,7 +84,7 @@ export default function Home() {
             </label>
             <textarea
               className="w-full h-40 px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:border-transparent resize-y text-sm"
-              placeholder="Paste the entire job description here..."
+              placeholder="Paste the target job description or role requirements here..."
               value={jobDescription}
               onChange={(e) => setJobDescription(e.target.value)}
             />
@@ -93,10 +100,17 @@ export default function Home() {
           </button>
         </form>
 
+        {/* Error Notification */}
+        {errorMsg && (
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-6 text-sm text-red-800">
+            <span className="font-bold">Deployment Status Error:</span> {errorMsg}
+          </div>
+        )}
+
         {/* AI Result Section */}
         {result && (
           <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 space-y-4">
-            <h3 className="text-lg font-bold text-emerald-950">Tailoring Results</h3>
+            <h3 className="text-lg font-bold text-emerald-950">ATS-Optimized Tailoring Results</h3>
             <div className="text-sm text-emerald-900 whitespace-pre-wrap">{result}</div>
           </div>
         )}
