@@ -138,4 +138,28 @@ export default function Home() {
           </div>
         )}
 
-        {
+        {/* Beautiful Markdown Optimization Results Card */}
+        {result && (
+          <div className="max-w-3xl mx-auto bg-neutral-800/30 backdrop-blur-md border border-neutral-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative overflow-hidden animate-fade-in">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-2xl pointer-events-none" />
+            
+            <div className="flex items-center justify-between border-b border-neutral-800 pb-4">
+              <div className="space-y-1">
+                <h3 className="text-lg font-bold text-white tracking-wide">Optimized Target Profile</h3>
+                <p className="text-xs text-neutral-400">Copy the tailored sections directly into your master file</p>
+              </div>
+              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-900/50 rounded-lg">
+                ATS Score Enhanced
+              </span>
+            </div>
+
+            <div className="text-neutral-300 text-sm leading-relaxed whitespace-pre-wrap selection:bg-emerald-500 selection:text-neutral-950">
+              {result}
+            </div>
+          </div>
+        )}
+
+      </div>
+    </div>
+  );
+}
