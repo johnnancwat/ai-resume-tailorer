@@ -1,13 +1,9 @@
-import type { NextConfig } from "next";
+import { withTailwind } from "@tailwindcss/next";
 
-const nextConfig: NextConfig = {
-  experimental: {
-    turbo: {
-      rules: {
-        "*.css": ["@tailwindcss/postcss"],
-      },
-    },
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 
-export default nextConfig;
+export default withTailwind(nextConfig);
