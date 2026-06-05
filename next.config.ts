@@ -1,9 +1,9 @@
-import { withTailwind } from "@tailwindcss/next";
+import type { NextConfig } from "next";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
 };
 
-export default withTailwind(nextConfig);
+export default nextConfig;
