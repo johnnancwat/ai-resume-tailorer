@@ -88,12 +88,10 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
 
   return (
     <div className="min-h-screen bg-[#030712] text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* Dynamic Grid Mesh and Ambient Blur Effects */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293708_1px,transparent_1px),linear-gradient(to_bottom,#1f293708_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-[140px] pointer-events-none"></div>
 
-      {/* HEADER COHESIVE PLATFORM BAR */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#030712]/70 border-b border-slate-900 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto w-full">
         <div className="flex items-center gap-2.5 cursor-pointer">
           <div className="bg-gradient-to-br from-cyan-500 to-purple-600 p-2 rounded-xl shadow-[0_0_15px_rgba(6,182,212,0.3)]">
@@ -113,7 +111,6 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
         </button>
       </header>
 
-      {/* CINEMATIC HERO BRAND HOUSING CONTAINER */}
       <section className="relative pt-20 pb-16 px-4 text-center max-w-5xl mx-auto">
         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-12">
           <div className="space-y-4">
@@ -134,7 +131,6 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
             </button>
           </motion.div>
 
-          {/* Premium Interface Mockup Terminal Preview */}
           <motion.div variants={itemVariants} className="relative rounded-2xl border border-slate-800/80 bg-slate-950/60 p-4 shadow-[0_0_60px_rgba(0,0,0,0.8)] max-w-4xl mx-auto text-left font-sans min-h-[300px]">
             <div className="flex items-center gap-2 pb-3 border-b border-slate-900 mb-4">
               <div className="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
@@ -145,8 +141,8 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="border-r border-slate-900/80 pr-4 space-y-4 text-xs text-slate-500 font-medium">
                 <p className="text-[10px] tracking-wider text-slate-600 uppercase font-bold">Resumes</p>
-                <div className="p-2 bg-slate-900 border border-cyan-500/30 text-cyan-400 rounded-lg text-[11px]">Product Manager — Stripe</div>
-                <div className="p-2 bg-slate-950 text-slate-400 rounded-lg text-[11px]">Frontend — Vercel</div>
+                <div className="p-2 bg-slate-900 border border-cyan-500/30 text-cyan-400 rounded-lg text-[11px]">DevOps Eng — Stripe</div>
+                <div className="p-2 bg-slate-950 text-slate-400 rounded-lg text-[11px]">Frontend Arc — Vercel</div>
               </div>
               <div className="md:col-span-2 flex flex-col items-center justify-center bg-slate-900/20 rounded-xl border border-slate-900 p-6 text-center text-xs text-slate-600">
                 <div className="w-full max-w-xs bg-white rounded-xl p-6 text-slate-800 shadow-md space-y-4">
@@ -154,13 +150,14 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
                   <div className="h-2 bg-slate-200 rounded w-5/6 mx-auto"></div>
                   <hr className="border-slate-100" />
                   <p className="text-[10px] font-bold tracking-wider text-purple-600 uppercase">Experience</p>
-                  <div className="flex justify-between text-[11px] font-bold"><p>Senior Product Manager</p><p className="text-slate-400">Stripe</p></div>
+                  <div className="flex justify-between text-[11px] font-bold"><p>Senior Architect</p><p className="text-slate-400">Stripe</p></div>
                 </div>
               </div>
               <div className="pl-2 space-y-5 text-xs">
                 <div className="text-center p-4 rounded-xl bg-slate-900/40 border border-slate-900">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1">Fit Score</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1">Fit Index Score</p>
                   <p className="text-3xl font-black text-emerald-400">87<span className="text-[11px] text-slate-500 font-normal">/100</span></p>
+                  <p className="text-[10px] text-emerald-500 font-bold mt-1">Verified Safe Match</p>
                 </div>
               </div>
             </div>
@@ -168,7 +165,6 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
         </motion.div>
       </section>
 
-      {/* WHY THIS ARCHITECTURE FEATURE GRID */}
       <section id="features" className="py-24 border-t border-slate-900 bg-slate-950/20 px-4 text-center max-w-6xl mx-auto space-y-16">
         <div className="space-y-3">
           <div className="px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-[10px] font-bold tracking-widest text-cyan-400 uppercase inline-block mx-auto">Why This Architecture</div>
@@ -196,7 +192,6 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
         </div>
       </section>
 
-      {/* THREE STEPS ROADMAP MAP VIEW */}
       <section className="py-20 px-4 text-center max-w-5xl mx-auto space-y-16">
         <div className="space-y-2">
           <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Execution Stack</p>
@@ -224,7 +219,6 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
         </button>
       </section>
 
-      {/* USER REVIEWS MATRIX */}
       <section id="testimonials" className="py-24 border-t border-slate-900 px-4 text-center max-w-5xl mx-auto space-y-16">
         <h2 className="text-3xl font-extrabold text-white tracking-tight">From filtered out to scheduled interviews.</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
@@ -246,7 +240,6 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
         </div>
       </section>
 
-      {/* EXPANDED INTERACTIVE FAQ ACCORDION AT THE BASE EDGE */}
       <section id="faq" className="py-20 border-t border-slate-900 max-w-3xl mx-auto px-4 space-y-12">
         <h2 className="text-3xl font-extrabold text-white text-center tracking-tight">Frequently asked questions</h2>
         <div className="flex flex-col bg-slate-950/20 p-2 rounded-2xl border border-slate-900/40 backdrop-blur-sm px-6">
@@ -264,8 +257,14 @@ function HomeScreen({ onStart }: { onStart: () => void }) {
 }
 
 // --- 2. THE DUAL-INPUT ACTIVE WORKSPACE DASHBOARD ---
-function MainInterface({ onBack }: { onBack: () => void }) {
-  const [activeMethod, setActiveMethod] = useState<"upload" | "text">("upload");
+interface MainInterfaceProps {
+  onBack: () => void;
+  optimizedOutput: string;
+  setOptimizedOutput: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function MainInterface({ onBack, optimizedOutput, setOptimizedOutput }: MainInterfaceProps) {
+  const [activeMethod, setActiveMethod] = useState<"upload" | "text">("text");
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [resumeText, setResumeText] = useState("");
   const [jobDescription, setJobDescription] = useState("");
@@ -297,19 +296,27 @@ function MainInterface({ onBack }: { onBack: () => void }) {
       alert("Please paste your resume text layout string content!");
       return;
     }
+    
     setIsOptimizing(true);
-    setTimeout(() => setIsOptimizing(false), 2500);
+    
+    // Simulate API generation delay
+    setTimeout(() => {
+      setIsOptimizing(false);
+      setOptimizedOutput(
+        `# JUMPER\n\n## PROFESSIONAL SUMMARY\nHighly disciplined Cyber Security and Software Engineering student at Bingham University. Proven expertise in deploying optimized Next.js web solutions, building clean utility interfaces with Tailwind CSS, and configuring secure automated database connections via Supabase pipelines.\n\n## CORE TECH CRITERIA ALIGNED\n* Next.js App Router Core Frameworks\n* Tailwind CSS Semantic Dark Themes\n* Database Management via Supabase Secure Vector Nodes`
+      );
+    }, 2500);
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col items-center justify-start p-4 sm:p-6 relative overflow-y-auto w-full py-16">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29370c_1px,transparent_1px),linear-gradient(to_bottom,#1f29370c_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] pointer-events-none"></div>
 
       <div className="w-full max-w-5xl relative z-10 backdrop-blur-2xl bg-slate-900/40 border border-slate-800/60 rounded-3xl p-6 sm:p-10 shadow-2xl">
         <button 
           type="button"
           onClick={onBack}
-          className="absolute top-6 left-6 text-xs text-slate-500 hover:text-white transition uppercase font-bold tracking-widest flex items-center gap-1"
+          className="absolute top-6 left-6 text-xs text-slate-500 hover:text-white transition uppercase font-bold tracking-widest flex items-center gap-1 cursor-pointer"
         >
           ← Exit Workspace
         </button>
@@ -327,7 +334,7 @@ function MainInterface({ onBack }: { onBack: () => void }) {
         <form onSubmit={handleOptimize} className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
-            {/* HYBRID RESUME SWITCH TAB WITH FILE AND TEXT INPUT CONTROLS */}
+            {/* HYBRID RESUME SWITCH TAB */}
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-between">
                 <label className="block text-xs font-bold tracking-widest text-slate-400 uppercase">Your Resume</label>
@@ -335,7 +342,7 @@ function MainInterface({ onBack }: { onBack: () => void }) {
                   <button
                     type="button"
                     onClick={() => setActiveMethod("upload")}
-                    className={`px-3 py-1 text-[10px] font-bold tracking-wider uppercase rounded-lg transition-all ${
+                    className={`px-3 py-1 text-[10px] font-bold tracking-wider uppercase rounded-lg transition-all cursor-pointer ${
                       activeMethod === "upload" 
                         ? "bg-slate-900 border border-slate-800 text-cyan-400 shadow-sm" 
                         : "text-slate-500 hover:text-slate-300"
@@ -346,7 +353,7 @@ function MainInterface({ onBack }: { onBack: () => void }) {
                   <button
                     type="button"
                     onClick={() => setActiveMethod("text")}
-                    className={`px-3 py-1 text-[10px] font-bold tracking-wider uppercase rounded-lg transition-all ${
+                    className={`px-3 py-1 text-[10px] font-bold tracking-wider uppercase rounded-lg transition-all cursor-pointer ${
                       activeMethod === "text" 
                         ? "bg-slate-900 border border-slate-800 text-purple-400 shadow-sm" 
                         : "text-slate-500 hover:text-slate-300"
@@ -402,7 +409,7 @@ function MainInterface({ onBack }: { onBack: () => void }) {
                           <button
                             type="button"
                             onClick={(e) => { e.stopPropagation(); setUploadedFile(null); }}
-                            className="px-4 py-1.5 bg-red-500/10 border border-red-500/20 text-red-400 font-semibold rounded-lg text-[11px] uppercase tracking-wide hover:bg-red-500/20 transition"
+                            className="px-4 py-1.5 bg-red-500/10 border border-red-500/20 text-red-400 font-semibold rounded-lg text-[11px] uppercase tracking-wide hover:bg-red-500/20 transition cursor-pointer"
                           >
                             Remove File
                           </button>
@@ -422,7 +429,7 @@ function MainInterface({ onBack }: { onBack: () => void }) {
                       value={resumeText}
                       onChange={(e) => setResumeText(e.target.value)}
                       placeholder="Paste the raw text content of your resume directly here..."
-                      className="w-full h-full min-h-[16rem] p-4 rounded-2xl border border-slate-800 bg-slate-950/60 text-slate-200 focus:outline-none focus:border-purple-500/50 transition resize-none text-sm leading-relaxed"
+                      className="w-full h-full min-h-[16rem] p-4 rounded-2xl border border-slate-800 bg-slate-950/60 text-slate-200 focus:outline-none focus:border-purple-500/50 transition resize-none text-sm leading-relaxed font-sans"
                     />
                   </motion.div>
                 )}
@@ -439,7 +446,7 @@ function MainInterface({ onBack }: { onBack: () => void }) {
                   value={jobDescription}
                   onChange={(e) => setJobDescription(e.target.value)}
                   placeholder="Paste the full job specs, technical stack, or role details here..."
-                  className="w-full h-full min-h-[16rem] p-4 rounded-2xl border border-slate-800 bg-slate-950/60 text-slate-200 focus:outline-none focus:border-purple-500/50 transition resize-none text-sm leading-relaxed"
+                  className="w-full h-full min-h-[16rem] p-4 rounded-2xl border border-slate-800 bg-slate-950/60 text-slate-200 focus:outline-none focus:border-purple-500/50 transition resize-none text-sm leading-relaxed font-sans"
                   required
                 />
               </div>
@@ -455,6 +462,76 @@ function MainInterface({ onBack }: { onBack: () => void }) {
             {isOptimizing ? "Processing Alignment Engines..." : "Optimize & Tailor Resume"}
           </button>
         </form>
+
+        {/* EXPORT AND FILE DOWNLOAD MATRIX SECTION */}
+        <AnimatePresence>
+          {optimizedOutput && (
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="space-y-4 mt-12 pt-8 border-t border-slate-800/80"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <label className="block text-xs font-bold tracking-widest text-slate-400 uppercase">
+                    Tailored Profile Output View
+                  </label>
+                  <p className="text-[11px] text-slate-500 font-light mt-0.5">
+                    Export your tracking-optimized profile securely to your local machine.
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-2.5 self-start sm:self-auto">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const blob = new Blob([optimizedOutput], { type: "text/markdown;charset=utf-8;" });
+                      const url = URL.createObjectURL(blob);
+                      const link = document.createElement("a");
+                      link.href = url;
+                      link.setAttribute("download", "optimized_resume_matrix.md");
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
+                    className="px-3.5 py-2 rounded-xl text-[11px] font-bold tracking-wider uppercase border border-slate-800 bg-slate-950 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-all duration-300 flex items-center gap-2 cursor-pointer"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download Markdown
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const blob = new Blob([optimizedOutput], { type: "text/plain;charset=utf-8;" });
+                      const url = URL.createObjectURL(blob);
+                      const link = document.createElement("a");
+                      link.href = url;
+                      link.setAttribute("download", "ats_optimized_resume.txt");
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
+                    className="px-3.5 py-2 rounded-xl text-[11px] font-bold tracking-wider uppercase bg-slate-900 border border-slate-800 text-slate-300 hover:text-purple-400 hover:border-purple-500/30 transition-all duration-300 flex items-center gap-2 cursor-pointer"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download Text (ATS Safe)
+                  </button>
+                </div>
+              </div>
+
+              <div className="w-full p-6 rounded-2xl border border-slate-800/60 bg-slate-950/60 text-slate-300 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap font-mono max-h-96 overflow-y-auto selection:bg-purple-500/30">
+                {optimizedOutput}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
       </div>
     </div>
   );
@@ -463,6 +540,8 @@ function MainInterface({ onBack }: { onBack: () => void }) {
 // --- 3. ROOT APPLICATION CONTAINER OVERSEER ---
 export default function Home() {
   const [view, setView] = useState<"landing" | "workspace">("landing");
+  // Shared structural context housing variable securely
+  const [optimizedOutput, setOptimizedOutput] = useState("");
 
   return (
     <main className="bg-[#030712] min-h-screen relative overflow-x-hidden">
@@ -470,7 +549,12 @@ export default function Home() {
         {view === "landing" ? (
           <HomeScreen key="landing-screen" onStart={() => setView("workspace")} />
         ) : (
-          <MainInterface key="workspace-screen" onBack={() => setView("landing")} />
+          <MainInterface 
+            key="workspace-screen" 
+            onBack={() => setView("landing")} 
+            optimizedOutput={optimizedOutput}
+            setOptimizedOutput={setOptimizedOutput}
+          />
         )}
       </AnimatePresence>
     </main>
