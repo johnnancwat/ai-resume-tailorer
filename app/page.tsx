@@ -273,6 +273,50 @@ function MainInterface({ onBack, optimizedOutput, setOptimizedOutput }: MainInte
   
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // DYNAMIC COMPONENT INTEGRATION ROUTINE WITH SERVER ENDPOINT
+  const handleOptimize = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const coreTextContent = activeMethod === "text" ? resumeText : "Attached file extraction stream";
+    
+    if (activeMethod === "text" && !resumeText.trim()) {
+      alert("Please paste your resume text layout string content!");
+      return;
+    }
+    if (!jobDescription.trim()) {
+      alert("Please provide a target job description!");
+      return;
+    }
+    
+    setIsOptimizing(true);
+    
+    try {
+      // Explicitly target your custom active API destination pipeline
+      const response = await fetch("/api/tailor", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          resumeText: coreTextContent,
+          jobDescription: jobDescription,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Network pipeline rejection handshake.");
+      }
+
+      // Sets dynamic markdown layout strings neatly below fields
+      setOptimizedOutput(data.output);
+    } catch (error: any) {
+      console.error("Workspace Execution Error:", error);
+      alert(`Optimization routine failed: ${error.message}`);
+    } finally {
+      setIsOptimizing(false);
+    }
+  };
+
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(true);
@@ -284,28 +328,6 @@ function MainInterface({ onBack, optimizedOutput, setOptimizedOutput }: MainInte
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       setUploadedFile(e.dataTransfer.files[0]);
     }
-  };
-
-  const handleOptimize = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (activeMethod === "upload" && !uploadedFile) {
-      alert("Please upload your resume file first!");
-      return;
-    }
-    if (activeMethod === "text" && !resumeText.trim()) {
-      alert("Please paste your resume text layout string content!");
-      return;
-    }
-    
-    setIsOptimizing(true);
-    
-    // Simulate API generation delay
-    setTimeout(() => {
-      setIsOptimizing(false);
-      setOptimizedOutput(
-        `# JUMPER\n\n## PROFESSIONAL SUMMARY\nHighly disciplined Cyber Security and Software Engineering student at Bingham University. Proven expertise in deploying optimized Next.js web solutions, building clean utility interfaces with Tailwind CSS, and configuring secure automated database connections via Supabase pipelines.\n\n## CORE TECH CRITERIA ALIGNED\n* Next.js App Router Core Frameworks\n* Tailwind CSS Semantic Dark Themes\n* Database Management via Supabase Secure Vector Nodes`
-      );
-    }, 2500);
   };
 
   return (
@@ -540,7 +562,6 @@ function MainInterface({ onBack, optimizedOutput, setOptimizedOutput }: MainInte
 // --- 3. ROOT APPLICATION CONTAINER OVERSEER ---
 export default function Home() {
   const [view, setView] = useState<"landing" | "workspace">("landing");
-  // Shared structural context housing variable securely
   const [optimizedOutput, setOptimizedOutput] = useState("");
 
   return (
